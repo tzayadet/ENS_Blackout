@@ -2,32 +2,45 @@
 
 [![Static application checks](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml) [![GitHub Pages](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml)
 
-Entorno interactivo de aprendizaje y apoyo a la auditoría de seguridad conforme al **Esquema Nacional de Seguridad (ENS), Real Decreto 311/2022**, con referencias a la metodología de auditoría y análisis de impacto.
+Simulador interactivo de formación sobre auditoría y gestión de riesgos, inspirado en el **Esquema Nacional de Seguridad (ENS), Real Decreto 311/2022**, MAGERIT v3 y marcos relacionados.
 
 **Demo:** https://tzayadet.github.io/ENS_Blackout/  
 **Código:** https://github.com/tzayadet/ENS_Blackout
 
-## Áreas funcionales
+## Qué incluye
 
-- Matriz interactiva de controles y medidas del ENS.
-- Recorrido por fases de auditoría.
-- Consulta de información asociada a controles.
-- Registro y revisión de hallazgos.
-- Gestión de evidencias objetivas.
-- Propuesta y seguimiento de planes de remediación.
-- Apartado formativo para practicar el proceso de auditoría.
-- Evaluación de impacto y escenarios de análisis de riesgos inspirados en MAGERIT v3.
-- Paneles de estado y elementos de seguimiento.
+- Recorrido didáctico por fases de auditoría.
+- Catálogo reducido e ilustrativo de controles.
+- Escenarios ficticios, entrevistas simuladas y decisiones.
+- Hallazgos y evidencias de ejemplo.
+- Matriz de riesgos simplificada.
+- Inventario de activos y documentación ficticios.
+- Generación de un resumen JSON de la sesión.
 
 ## Uso
 
-Abre la [aplicación web](https://tzayadet.github.io/ENS_Blackout/) en un navegador moderno. La interfaz está diseñada como una herramienta interactiva de consulta y práctica.
+Abre la [demo pública](https://tzayadet.github.io/ENS_Blackout/) en un navegador moderno. No necesita backend ni instalación.
 
-## Alcance
+Para validar el código localmente:
 
-ENS BLACKOUT es un proyecto de apoyo y aprendizaje. No sustituye una auditoría formal, una declaración de aplicabilidad validada, un análisis de riesgos completo ni la evaluación independiente de evidencias. Los resultados deben contrastarse con la normativa y las guías oficiales vigentes.
+```bash
+python scripts/validate_site.py
+```
 
-No introduzcas información real de organizaciones, sistemas, vulnerabilidades o evidencias confidenciales en una demo pública.
+Requiere Python 3.11+ y Node.js 20+ para comprobar la sintaxis del JavaScript.
+
+## Alcance y precisión
+
+**ENS BLACKOUT es una simulación formativa, no una herramienta de auditoría ni una plataforma GRC de producción.**
+
+- Los organismos, activos, actores, conversaciones, hallazgos y evidencias son ficticios.
+- Los hashes mostrados son datos de demostración; no se calculan sobre archivos reales.
+- El catálogo de controles y sus correspondencias con ISO 27001/NIS2 son ejemplos simplificados, no una implementación completa ni una declaración de aplicabilidad.
+- Las puntuaciones y el dictamen se generan con reglas didácticas y valores aleatorios. No representan una evaluación de conformidad.
+- La aplicación no consulta el CCN, el BOE, repositorios, sistemas corporativos ni fuentes externas.
+- No existe persistencia de evidencias ni trazabilidad probatoria.
+
+Contrasta siempre las referencias con el texto normativo y las guías oficiales vigentes. No introduzcas datos reales, información personal, vulnerabilidades ni evidencias confidenciales en la demo pública.
 
 ## Tecnologías
 
@@ -36,19 +49,13 @@ No introduzcas información real de organizaciones, sistemas, vulnerabilidades o
 - JavaScript
 - APIs del navegador
 
-## Validación
+## Validación continua
 
-El control de calidad extrae el JavaScript embebido y ejecuta `node --check`, además de comprobar que la aplicación conserva sus secciones funcionales y no incorpora dependencias JavaScript remotas.
-
-```bash
-python scripts/validate_site.py
-```
-
-GitHub Actions ejecuta esta validación en cada push y pull request.
+GitHub Actions comprueba que el HTML contiene las secciones esperadas, que no se cargan scripts JavaScript remotos, que el JavaScript embebido compila y que los puntos de entrada de chat y terminal no insertan directamente texto del usuario como HTML.
 
 ## Despliegue
 
-La aplicación se publica como sitio estático mediante GitHub Pages. No requiere un backend propio para cargar la interfaz.
+La interfaz está publicada como sitio estático mediante GitHub Pages. No existe un backend asociado.
 
 ## Licencia
 
