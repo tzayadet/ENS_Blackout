@@ -6,7 +6,7 @@ import tempfile
 root = Path(__file__).resolve().parents[1]
 html = (root / "index.html").read_text(encoding="utf-8")
 
-scripts = re.findall(r"<script(?:\\s[^>]*)?>([\\s\\S]*?)</script\\s*>", html, re.IGNORECASE)
+scripts = re.findall(r"<script[^>]*>(.*?)</script>", html, re.IGNORECASE | re.DOTALL)
 if len(scripts) != 1:
     raise SystemExit(f"Expected one inline application script, found {len(scripts)}")
 
