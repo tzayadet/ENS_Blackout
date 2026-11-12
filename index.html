@@ -933,7 +933,16 @@ function log(actorClass, actorName, text, type = '') {
     const timeStr = now.toTimeString().split(' ')[0];
     const div = document.createElement('div');
     div.className = `log-entry ${actorClass} ${type}`;
-    div.innerHTML = `<span class="ts">[${timeStr}]</span> <span class="an">${actorName}:</span> ${text}`;
+    const timestamp = document.createElement('span');
+    timestamp.className = 'ts';
+    timestamp.textContent = `[${timeStr}]`;
+    const actor = document.createElement('span');
+    actor.className = 'an';
+    actor.textContent = actorName + ':';
+    const message = document.createElement('span');
+    message.className = 'log-text';
+    message.textContent = text;
+    div.append(timestamp, document.createTextNode(' '), actor, document.createTextNode(' '), message);
     document.getElementById('log-cont').appendChild(div);
     document.getElementById('log-cont').scrollTop = document.getElementById('log-cont').scrollHeight;
 }
@@ -954,7 +963,13 @@ function addTimeline(title, desc, type = 'info') {
     if(!cont) return;
     const ev = document.createElement('div');
     ev.style.cssText = `padding: 8px; margin-bottom: 8px; border-left: 3px solid ${type === 'critical' ? 'var(--red)' : type === 'warning' ? 'var(--orange)' : 'var(--cyan)'}; background: rgba(0,0,0,0.3); border-radius: 0 3px 3px 0;`;
-    ev.innerHTML = `<div style="color:var(--cyan);font-size:0.7rem;font-weight:bold;">${timeStr} - ${title}</div><div style="font-size:0.75rem;margin-top:3px;">${desc}</div>`;
+    const heading = document.createElement('div');
+    heading.style.cssText = 'color:var(--cyan);font-size:0.7rem;font-weight:bold;';
+    heading.textContent = `${timeStr} - ${title}`;
+    const detail = document.createElement('div');
+    detail.style.cssText = 'font-size:0.75rem;margin-top:3px;';
+    detail.textContent = desc;
+    ev.append(heading, detail);
     cont.appendChild(ev);
     cont.scrollTop = cont.scrollHeight;
 }
@@ -1375,7 +1390,8 @@ function sendChat() {
     const cont = document.getElementById('chat-msgs');
     const youMsg = document.createElement('div');
     youMsg.className = 'chat-msg you';
-    youMsg.innerHTML = `<div class="who">TÚ (Auditor)</div><div>${msg}</div>`;
+    youMsg.innerHTML = '<div class="who">TÚ (Auditor)</div><div class="message"></div>';
+    youMsg.querySelector('.message').textContent = msg;
     cont.appendChild(youMsg);
     input.value = '';
     state.chatHistory.push({ from: 'tu', to: target, msg });
@@ -1423,7 +1439,8 @@ function sendChatMock(actorId, msg) {
     const cont = document.getElementById('chat-msgs');
     const youMsg = document.createElement('div');
     youMsg.className = 'chat-msg you';
-    youMsg.innerHTML = `<div class="who">TÚ (Auditor IA)</div><div>${msg}</div>`;
+    youMsg.innerHTML = '<div class="who">TÚ (Auditor IA)</div><div class="message"></div>';
+    youMsg.querySelector('.message').textContent = msg;
     cont.appendChild(youMsg);
     state.chatHistory.push({ from: 'tu', to: actorId, msg });
     cont.scrollTop = cont.scrollHeight;
@@ -1461,7 +1478,7 @@ function execCmd() {
     const input = document.getElementById('term-in');
     const cmd = input.value.trim();
     if (!cmd) return;
-    termLog(`<span style="color:var(--cyan)">auditor@ccn:~$</span> ${cmd}`, 'cmd');
+    termLog(`auditor@ccn:~$ ${cmd}`, 'cmd');
     input.value = '';
     const parts = cmd.split(/\s+/);
     const command = parts[0].toLowerCase();
@@ -1475,7 +1492,7 @@ function execCmd() {
 }
 
 function execCmdMock(cmdStr) {
-    termLog(`<span style="color:var(--cyan)">auditor@ccn:~$</span> ${cmdStr}`, 'cmd');
+    termLog(`auditor@ccn:~$ ${cmdStr}`, 'cmd');
     const parts = cmdStr.split(/\s+/);
     const command = parts[0].toLowerCase();
     const args = parts.slice(1);
@@ -1965,7 +1982,7 @@ function finalReport() {
     else if (majors <= 2) dictamen = 'NO CONFORMIDAD PARCIAL';
     
     log('system', 'SISTEMA', '═══════ RESULTADO DE SIMULACIÓN ═══════');
-    log('auditor', ACTORS.auditor_lider.name, `DICTAMEN FINAL: ${dictamen}. NC Mayores: ${majors}. Menores: ${minors}. Observaciones: ${obs}. Fortalezas: ${str}. Plazo PAC: 3 meses. Seguimiento: 6 meses.`);
+    log('auditor', ACTORS.auditor_lider.name, `RESULTADO SIMULADO: ${dictamen}. NC Mayores: ${majors}. Menores: ${minors}. Observaciones: ${obs}. Fortalezas: ${str}. Plazo PAC y seguimiento: escenarios didácticos.`);
     highlightActor('auditor_lider');
     addTimeline(`DICTAMEN: ${dictamen}`, `Puntuación final: ${state.score}`, dictamen.includes('CONFORMIDAD') ? 'info' : 'critical');
     
