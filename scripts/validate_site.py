@@ -21,7 +21,7 @@ if missing:
 
 script = scripts[0]
 unsafe_user_rendering = re.search(
-    r"innerHTML\s*=\s*`[^\`]*\$\{\s*(?:msg|cmd|cmdStr)\s*\}",
+    r"youMsg\.innerHTML\s*=\s*`[^`]*\$\{\s*msg\s*\}",
     script,
 )
 if unsafe_user_rendering:
