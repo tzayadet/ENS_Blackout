@@ -870,7 +870,7 @@ const COMMANDS = {
         `);
         return '[*] Abriendo módulo de evaluación Magerit...';
     },
-    forense: () => `ANÁLISIS FORENSE DIGITAL (BÁSICO)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[*] Adquisición de evidencia en progreso...\n[+] Imagen de disco adquirida. Huella de demostración; no se calcula ni verifica ningún hash.\n[*] Análisis de registros del sistema...\n[!] Intentos de acceso fallidos: ${Math.floor(Math.random()*500)+100}\n[!] Conexiones sospechosas detectadas: ${Math.floor(Math.random()*5)+1}\n[+] Se recomienda profundizar con herramientas de memoria (Volatility).`,
+    forense: () => `ANÁLISIS FORENSE DIGITAL (BÁSICO)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[*] Adquisición de evidencia en progreso...\n[+] Imagen de disco simulada. No se adquiere ni verifica ningún archivo real.\n[*] Análisis de registros del sistema...\n[!] Intentos de acceso fallidos: ${Math.floor(Math.random()*500)+100}\n[!] Conexiones sospechosas detectadas: ${Math.floor(Math.random()*5)+1}\n[+] Se recomienda profundizar con herramientas de memoria (Volatility).`,
     limpiar: () => { document.getElementById('term-out').innerHTML = ''; return ''; }
 };
 
@@ -881,7 +881,7 @@ const CHAT_RESPONSES = {
         default: ['Interesante punto. Lo anotaré en mis observaciones para el informe final.', 'Ese aspecto requiere una revisión más profunda de la documentación.']
     },
     ciso: {
-        greetings: ['Bienvenido. Tenemos toda la documentación preparada en el repositorio seguro.'],
+        greetings: ['Bienvenido. El escenario incluye documentación y evidencias ficticias para practicar la auditoría.'],
         defensive: ['Ese hallazgo tiene un contexto que no se ve en el papel. Tenemos limitaciones presupuestarias históricas.', 'Entiendo el requisito, pero la implementación técnica es más compleja de lo que parece.'],
         default: ['Déjeme consultar ese dato concreto con mi equipo técnico y le respondo en breve.', 'Podemos aportar esa evidencia, pero necesitamos 24 horas para compilarla.']
     },
