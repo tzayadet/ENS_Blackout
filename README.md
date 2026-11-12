@@ -1,5 +1,7 @@
 # ENS BLACKOUT
 
+[![Static application checks](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml) [![GitHub Pages](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml)
+
 Entorno interactivo de aprendizaje y apoyo a la auditoría de seguridad conforme al **Esquema Nacional de Seguridad (ENS), Real Decreto 311/2022**, con referencias a la metodología de auditoría y análisis de impacto.
 
 **Demo:** https://tzayadet.github.io/ENS_Blackout/  
