@@ -693,7 +693,7 @@ const FINDINGS = [
         title: 'Vulnerabilidades críticas sin parchear (CVEs > 9.0)',
         description: '8 servidores expuestos a internet tienen vulnerabilidades críticas conocidas desde hace más de 120 días.',
         remediation: 'Parcheo urgente en 72h. Compensación temporal con reglas WAF y segmentación de red.',
-        evidence: { file: 'informe_nessus_critico.pdf', hash: '9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d', content: 'HOST: 10.20.30.110 (Windows Server 2012 R2)\nCVE-2023-12345 (CVSS 9.8): Remote Code Execution\nEstado: <span class="highlight">EXPLOTABLE</span>\nDías sin parche: 127' },
+        evidence: { file: 'informe_nessus_critico.pdf', hash: 'DEMO-NO-VERIFICADO', content: 'HOST: 10.20.30.110 (Windows Server 2012 R2)\nCVE-2023-12345 (CVSS 9.8): Remote Code Execution\nEstado: <span class="highlight">EXPLOTABLE</span>\nDías sin parche: 127' },
         dialogues: [
             { actor: 'auditor_tec', text: 'El escaneo Nessus muestra 8 servidores con CVEs críticas explotables.' },
             { actor: 'sysadmin', text: 'Ese servidor no se puede reiniciar sin romper la aplicación. El proveedor quebró y no hay soporte.' },
@@ -719,7 +719,7 @@ const FINDINGS = [
         title: 'Compromiso de la cadena de suministro (Supply Chain Attack)',
         description: 'Se detectó que un proveedor de mantenimiento remoto tiene acceso persistente con privilegios de administrador sin MFA, violando los requisitos de NIS2 Art. 21.2.d.',
         remediation: 'Revocar accesos inmediatamente, implementar MFA obligatorio para terceros y segmentar la red de proveedores.',
-        evidence: { file: 'access_logs_provider.csv', hash: 'c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2', content: '2026-06-14 03:14:22, user=mant_ext_01, ip=185.220.101.45, action=LOGIN_SUCCESS, mfa=false, role=DOMAIN_ADMIN\n<span class="highlight">[!] ACCESO DE TERCEROS SIN MFA DETECTADO</span>' },
+        evidence: { file: 'access_logs_provider.csv', hash: 'DEMO-NO-VERIFICADO', content: '2026-06-14 03:14:22, user=mant_ext_01, ip=185.220.101.45, action=LOGIN_SUCCESS, mfa=false, role=DOMAIN_ADMIN\n<span class="highlight">[!] ACCESO DE TERCEROS SIN MFA DETECTADO</span>' },
         dialogues: [
             { actor: 'auditor_tec', text: 'He encontrado sesiones activas de un proveedor externo con privilegios de dominio y sin autenticación multifactor.' },
             { actor: 'ciso', text: 'Ese proveedor tiene un acuerdo de nivel de servicio (SLA) que exime de MFA para tareas de emergencia.' },
@@ -732,7 +732,7 @@ const FINDINGS = [
         title: 'Copias de seguridad no inmutables (Riesgo de Ransomware)',
         description: 'Los backups están almacenados en un NAS conectado a la red principal sin protección de inmutabilidad, siendo vulnerables a cifrado por ransomware.',
         remediation: 'Implementar almacenamiento inmutable (WORM) o backups air-gapped fuera de la red principal.',
-        evidence: { file: 'backup_config_audit.log', hash: 'b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2', content: 'Target: nas-backup-01.internal\nProtocol: SMB/CIFS\nImmutability: DISABLED\nAir-gap: FALSE\n<span class="highlight">[!] RIESGO CRÍTICO: BACKUPS ELIMINABLES POR RANSOMWARE</span>' },
+        evidence: { file: 'backup_config_audit.log', hash: 'DEMO-NO-VERIFICADO', content: 'Target: nas-backup-01.internal\nProtocol: SMB/CIFS\nImmutability: DISABLED\nAir-gap: FALSE\n<span class="highlight">[!] RIESGO CRÍTICO: BACKUPS ELIMINABLES POR RANSOMWARE</span>' },
         dialogues: [
             { actor: 'auditor_tec', text: 'He revisado la configuración de los backups. No hay inmutabilidad ni air-gap. Un ransomware podría cifrarlos.' },
             { actor: 'sysadmin', text: 'El presupuesto para almacenamiento inmutable fue denegado el año pasado. Usamos lo que tenemos.' },
@@ -744,7 +744,7 @@ const FINDINGS = [
         title: 'Cadena de suministro: Cláusulas de seguridad insuficientes',
         description: 'El contrato con el proveedor Cloud no incluye el derecho de auditoría por parte del ENS.',
         remediation: 'Negociar un anexo de seguridad con derecho de auditoría y ubicación de datos en la UE.',
-        evidence: { file: 'contrato_cloudgov_v1.5.pdf', hash: 'e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6', content: 'CLÁUSULA 8.3: El Cliente renuncia a cualquier derecho de auditoría directa sobre las instalaciones del Proveedor.\nCLÁUSULA 9.1: Los datos podrán ser replicados en centros de datos de EE.UU.' },
+        evidence: { file: 'contrato_cloudgov_v1.5.pdf', hash: 'DEMO-NO-VERIFICADO', content: 'CLÁUSULA 8.3: El Cliente renuncia a cualquier derecho de auditoría directa sobre las instalaciones del Proveedor.\nCLÁUSULA 9.1: Los datos podrán ser replicados en centros de datos de EE.UU.' },
         dialogues: [
             { actor: 'auditor_legal', text: 'El contrato con CloudGov renuncia explícitamente al derecho de auditoría y permite replicación fuera de la UE.' },
             { actor: 'provider', text: 'Nuestra plataforma está certificada en ISO 27001. Nuestras políticas de seguridad son estándar y no negociables.' },
@@ -756,7 +756,7 @@ const FINDINGS = [
         title: 'Plan de Continuidad sin simulacros recientes',
         description: 'El BCP está documentado, pero no se ha ejecutado un simulacro de recuperación en 24 meses.',
         remediation: 'Planificar y ejecutar un simulacro de recuperación en los próximos 6 meses.',
-        evidence: { file: 'registro_simulacros.pdf', hash: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2', content: 'Último simulacro: 10/03/2023.\nResultado: RTO cumplido (4h), RPO excedido (6h vs 2h).\nEstado: <span class="highlight">PENDIENTE</span>' },
+        evidence: { file: 'registro_simulacros.pdf', hash: 'DEMO-NO-VERIFICADO', content: 'Último simulacro: 10/03/2023.\nResultado: RTO cumplido (4h), RPO excedido (6h vs 2h).\nEstado: <span class="highlight">PENDIENTE</span>' },
         dialogues: [
             { actor: 'auditor_lider', text: 'Veo que el último simulacro fue en 2023. ¿Por qué no se ha repetido este año?' },
             { actor: 'resp_sistema', text: 'El presupuesto se destinó a la migración a la nube. Los simulacros son costosos en horas hombre.' },
@@ -768,7 +768,7 @@ const FINDINGS = [
         title: 'Capacidad de respuesta a incidentes madura (CSIRT)',
         description: 'El equipo CSIRT interno demuestra procedimientos excelentes, con MTTC por debajo de 1 hora.',
         remediation: 'Mantener y documentar estas prácticas como referencia.',
-        evidence: { file: 'metricas_csirt_2025.pdf', hash: 'd0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1', content: 'MTTD (Detección): 12 minutos.\nMTTC (Contención): 45 minutos.\nEvaluación: <span class="highlight">EXCELENTE</span>' },
+        evidence: { file: 'metricas_csirt_2025.pdf', hash: 'DEMO-NO-VERIFICADO', content: 'MTTD (Detección): 12 minutos.\nMTTC (Contención): 45 minutos.\nEvaluación: <span class="highlight">EXCELENTE</span>' },
         dialogues: [
             { actor: 'auditor_tec', text: 'Debo reconocer que los tiempos de respuesta del CSIRT son excepcionales.' },
             { actor: 'auditor_lider', text: 'Registrado como Fortaleza. Es un ejemplo de buena práctica en Reacciones (RC).' }
@@ -817,7 +817,7 @@ const COMMANDS = {
         const f = state.findings.find(x => x.code === code);
         if (!f) return `Hallazgo ${code} no encontrado.`;
         if (!f.evidence) return 'Sin evidencia asociada a este hallazgo.';
-        return `EVIDENCIA: ${f.evidence.file}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${f.evidence.content}\n\nSHA-256: ${f.evidence.hash}`;
+        return `EVIDENCIA: ${f.evidence.file}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${f.evidence.content}\n\nHUELLA DEMO (NO VERIFICADA): ${f.evidence.hash}`;
     },
     riesgo: () => {
         if (!state.findings.length) return 'No hay hallazgos para calcular riesgos.';
@@ -870,7 +870,7 @@ const COMMANDS = {
         `);
         return '[*] Abriendo módulo de evaluación Magerit...';
     },
-    forense: () => `ANÁLISIS FORENSE DIGITAL (BÁSICO)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[*] Adquisición de evidencia en progreso...\n[+] Imagen de disco adquirida. Hash SHA-256 verificado.\n[*] Análisis de registros del sistema...\n[!] Intentos de acceso fallidos: ${Math.floor(Math.random()*500)+100}\n[!] Conexiones sospechosas detectadas: ${Math.floor(Math.random()*5)+1}\n[+] Se recomienda profundizar con herramientas de memoria (Volatility).`,
+    forense: () => `ANÁLISIS FORENSE DIGITAL (BÁSICO)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[*] Adquisición de evidencia en progreso...\n[+] Imagen de disco adquirida. Huella de demostración; no se calcula ni verifica ningún hash.\n[*] Análisis de registros del sistema...\n[!] Intentos de acceso fallidos: ${Math.floor(Math.random()*500)+100}\n[!] Conexiones sospechosas detectadas: ${Math.floor(Math.random()*5)+1}\n[+] Se recomienda profundizar con herramientas de memoria (Volatility).`,
     limpiar: () => { document.getElementById('term-out').innerHTML = ''; return ''; }
 };
 
@@ -1200,7 +1200,7 @@ function showFindingDetail(finding) {
             <h3>📁 Evidencia Objetiva</h3>
             <div class="modal-field"><span class="label">Archivo:</span><span class="value">${finding.evidence.file}</span></div>
             <div class="code-viewer">${finding.evidence.content}</div>
-            <div class="modal-field" style="margin-top:5px;"><span class="label">SHA-256:</span><span class="value" style="font-size:0.65rem;word-break:break-all;">${finding.evidence.hash}</span></div>
+            <div class="modal-field" style="margin-top:5px;"><span class="label">HUELLA DEMO (NO VERIFICADA):</span><span class="value" style="font-size:0.65rem;word-break:break-all;">${finding.evidence.hash}</span></div>
         </div>
         ` : ''}
     `;
@@ -1306,7 +1306,7 @@ function showEvidence(ev) {
     box.style.display = 'block';
     document.getElementById('ev-file').textContent = ev.file;
     document.getElementById('ev-cont').innerHTML = ev.content;
-    document.getElementById('ev-hash').textContent = `SHA-256: ${ev.hash}`;
+    document.getElementById('ev-hash').textContent = `HUELLA DEMO (NO VERIFICADA): ${ev.hash}`;
 }
 
 function showDecision(decision) {
@@ -1928,11 +1928,11 @@ function requestEvidence() {
     schedule(() => {
         const ev = {
             file: `evidencia_${control.code.replace(/\./g,'_')}_${Date.now()}.pdf`,
-            hash: Array.from({length: 64}, () => '0123456789abcdef'[Math.floor(Math.random()*16)]).join(''),
+            hash: 'DEMO-NO-VERIFICADO',
             content: `Documento aportado como evidencia del control ${control.code}.\nIncluye: procedimiento operativo, registros de ejecución de los últimos 6 meses y actas de revisión firmadas.\n\n<span class="highlight">[✓] DOCUMENTACIÓN CONFORME</span>`
         };
         showEvidence(ev);
-        log('ciso', ACTORS.ciso.name, `Evidencia del ${control.code} aportada en el repositorio seguro. Hash SHA-256 verificado.`);
+        log('ciso', ACTORS.ciso.name, `Evidencia sintética del ${control.code} registrada en la simulación. Huella de demostración; no se calcula ni verifica ningún hash.`);
         updateScore(3, `Evidencia obtenida: ${control.code}`);
     }, 3000);
 }
