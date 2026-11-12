@@ -34,6 +34,16 @@ No introduzcas información real de organizaciones, sistemas, vulnerabilidades o
 - JavaScript
 - APIs del navegador
 
+## Validación
+
+El control de calidad extrae el JavaScript embebido y ejecuta `node --check`, además de comprobar que la aplicación conserva sus secciones funcionales y no incorpora dependencias JavaScript remotas.
+
+```bash
+python scripts/validate_site.py
+```
+
+GitHub Actions ejecuta esta validación en cada push y pull request.
+
 ## Despliegue
 
 La aplicación se publica como sitio estático mediante GitHub Pages. No requiere un backend propio para cargar la interfaz.
