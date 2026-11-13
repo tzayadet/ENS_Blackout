@@ -1,4 +1,14 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/GRC-ENS_BLACKOUT-101010?style=for-the-badge&labelColor=050805&color=00FF41" alt="ENS Blackout"/>
+  <img src="https://img.shields.io/badge/WEB_APP-HTML_CSS_JS-101010?style=for-the-badge&logo=javascript&logoColor=00FF41" alt="HTML CSS JavaScript"/>
+</p>
+
 # ENS BLACKOUT
+
+<p align="center">
+  <a href="https://tzayadet.github.io/ENS_Blackout/"><strong>LIVE DEMO ↗</strong></a> ·
+  <a href="https://github.com/tzayadet/ENS_Blackout"><strong>SOURCE CODE</strong></a>
+</p>
 
 [![Static application checks](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/quality.yml) [![GitHub Pages](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml/badge.svg)](https://github.com/tzayadet/ENS_Blackout/actions/workflows/static.yml)
 
